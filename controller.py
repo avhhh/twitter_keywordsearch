@@ -11,12 +11,10 @@ WELCOME_MSG = "Welcome to the Twitter Keyword Search!\n"+\
 def main():
 	print(WELCOME_MSG)
 	cur_path = os.getcwd()
-	print("Current path:", cur_path)
 	
 	data_option = input("Select an option: ")
 	if data_option == '1':
 		cur_path += "/test_files/basic.txt"
-		print("Current path:", cur_path)
 	elif data_option == '2':
 		cur_path += "/test_files/sample_input.txt"
 	elif data_option == '3':

@@ -58,34 +58,34 @@ def buildIndex(filename):
 # Finds & Prints tweets that at least matches one word in pattern
 def scoreTweets(inv_index, pattern):
 	# Prevents from reprinting tweets
-	noTweets = True
+	numMatches = 0
 	wordMatches = [0]*len(allTweets)
 	for word in pattern.split(" "):
 		if word in inv_index:
-			noTweets = False
 			tweet_list = inv_index[word]
 		else:
 			continue
 		for pair in tweet_list:
 			index = pair[0]-1
 			if wordMatches[index] == 0:
+				numMatches += 1
 				wordMatches[index] = 1
 			else:
 				wordMatches[index] += 1
-	return wordMatches, noTweets
+	return wordMatches, numMatches
 
-def printRelevant(wordMatches, noTweets):
+def printRelevant(wordMatches, numMatches):
 	# Find the indicies of top 10 values
-	if noTweets:
+	if numMatches == 0:
 		print("There are no relevant tweets.")
 		return
-	print("Relevant Tweets")
-	print("----------------")
 	sortedMatches = sorted(range(len(wordMatches)), key=lambda x: wordMatches[x])[::-1]
 	printNum = 10
-	if len(wordMatches) < printNum:
-		printNum = len(wordMatches)
+	if numMatches < printNum:
+		printNum = numMatches
 	
+	print("There are", printNum, "Relevant Tweets")
+	print("---------------------------------------")
 	for i in range(printNum):
 		tweetIdx = sortedMatches[i]
 		print("[Tweet " + str(tweetIdx+1) + "]:", end=" ")
