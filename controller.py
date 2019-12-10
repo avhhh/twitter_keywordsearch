@@ -8,18 +8,22 @@ WELCOME_MSG = "Welcome to the Twitter Keyword Search!\n"+\
 				"[2] sample_input.txt -- 22 Tweets\n" +\
 				"[3] farha_tweets.txt -- 44 Tweets\n" +\
 				"[4] Enter my own file\n"
+OPTION_MSG = "What do you want to do with the data?\n" +\
+				"---------------------------------------\n" +\
+				"[1] Print all the tweets in the console\n" +\
+				"[2] Make a keyword search\n"
 def main():
 	print(WELCOME_MSG)
 	cur_path = os.getcwd()
 	
-	data_option = input("Select an option: ")
-	if data_option == '1':
+	dataOpt = input("Select an option: ")
+	if dataOpt == '1':
 		cur_path += "/test_files/basic.txt"
-	elif data_option == '2':
+	elif dataOpt == '2':
 		cur_path += "/test_files/sample_input.txt"
-	elif data_option == '3':
+	elif dataOpt == '3':
 		cur_path += "/test_files/farha_tweets.txt"
-	elif data_option == '4':				
+	elif dataOpt == '4':				
 		filename = ""
 		while (not utility.validFile(filename)):
 			if (filename != ""):
@@ -29,8 +33,16 @@ def main():
 	else:
 		print("Option not available.")
 		return
-
-	utility.getTweets(cur_path)
+	
+	print(OPTION_MSG)
+	actionOpt = input("Select an option: ")
+	if actionOpt == '1':
+		utility.readtweets(cur_path)
+	elif actionOpt == '2':
+		utility.getTweets(cur_path)
+	else:
+		print("Option not available.")
+		return
 
 if __name__ == '__main__':
 	main()
