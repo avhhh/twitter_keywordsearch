@@ -46,7 +46,7 @@ def buildIndex(filename):
 	while line:
 		tweetnum += 1
 		for i in range(0, len(line)):
-			word = line[i]
+			word = line[i].lower()
 			if word not in inv_index:
 				inv_index[word] = [(tweetnum, i)]
 			else:
@@ -74,6 +74,9 @@ def scoreTweets(inv_index, pattern):
 				wordMatches[index] += 1
 	return wordMatches, numMatches
 
+def positionScore(inv_index, pattern):
+	return
+
 def printRelevant(wordMatches, numMatches):
 	# Find the indicies of top 10 values
 	if numMatches == 0:
@@ -91,10 +94,22 @@ def printRelevant(wordMatches, numMatches):
 		print("[Tweet " + str(tweetIdx+1) + "]:", end=" ")
 		print(allTweets[tweetIdx])
 
+def derestrict(pattern):
+	newpattern = ""
+	for word in pattern.split(" "):
+		newpattern += (word + " ")
+		newpattern += (word +"s ")
+		newpattern += (word + "ing ")
+		newpattern += (word + "ed ")
+	return newpattern
+
 def getTweets(filename):	
 	storeTweets(filename)	
 	buildIndex(filename)
+	
 	query = input("Enter your query: ")
+	query = derestrict(query)
+	
 	result = scoreTweets(inv_index, query)
 	printRelevant(result[0], result[1])
 
