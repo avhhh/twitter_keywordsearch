@@ -8,9 +8,8 @@ A keyword search engine that accepts a text file of tweets as input and outputs 
 ## How to run
 **IMPORTANT:** MAKE SURE YOU HAVE PYTHON 3 INSTALLED. THE CODE WILL NOT RUN WITH PYTHON 2.7x!!!!!!!!!!!
 
-Run the following commands to clone the repo and to run the source code.
+Run the following commands to run the source code:
 ```sh
-$ git clone https://github.com/avhhh/twitter_keywordsearch.git
 $ cd twitter_keywordsearch/
 $ python controller.py
 ```
