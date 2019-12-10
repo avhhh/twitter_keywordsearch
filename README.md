@@ -2,11 +2,11 @@
 A keyword search engine that accepts a text file of tweets as input and outputs the most relevants tweets.
 
 ## Environment (Very Important)
-- Python 3
+- Python 3.7.3
 - Linux OS (Ubuntu)
 
 ## How to run
-**IMPORTANT:** MAKE SURE YOU HAVE PYTHON 3 INSTALLED. THE CODE WILL NOT RUN WITH PYTHON 2.7x!!!!!!!!!!!
+**IMPORTANT:** MAKE SURE YOU HAVE PYTHON 3.7.x INSTALLED. THE CODE WILL NOT RUN WITH OLDER VERSIONS OF PYTHON!
 
 Run the following commands to run the source code:
 ```sh
