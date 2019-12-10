@@ -1,11 +1,13 @@
 # Twitter Keyword Search
 A keyword search engine that accepts a text file of tweets as input and outputs the most relevants tweets.
 
-## Environment
+## Environment (Very Important)
 - Python 3
-- Ubuntu LTS
+- Linux OS (Ubuntu)
 
 ## How to run
+**IMPORTANT:** MAKE SURE YOU HAVE PYTHON 3 INSTALLED. THE CODE WILL NOT RUN WITH PYTHON 2.7x!!!!!!!!!!!
+
 Run the following commands to clone the repo and to run the source code.
 ```sh
 $ git clone https://github.com/avhhh/twitter_keywordsearch.git
